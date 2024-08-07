@@ -101,3 +101,4 @@ Esta é uma aplicação full stack desenvolvida para simular empréstimos pessoa
 - Express.js
 - Node.js
 - React
+- PostgreSQL
