@@ -1,18 +1,25 @@
 import pgp, { IDatabase } from "pg-promise";
-import dotenv from "dotenv";
 import { IClient } from "pg-promise/typescript/pg-subset";
+import config from "../../../config";
 
-dotenv.config();
+const databaseUrl = config.DATABASE_URL;
 
-export default class DatabaseConnection {
+class DatabaseConnection {
+  private static instance: DatabaseConnection;
   connection: IDatabase<any, IClient>;
 
-  constructor() {
-    const databaseUrl = process.env.DATABASE_URL;
+  private constructor() {
     if (!databaseUrl) {
       throw new Error("DATABASE_URL environment variable is not defined");
     }
     this.connection = pgp()(databaseUrl);
+  }
+
+  public static getInstance(): DatabaseConnection {
+    if (!DatabaseConnection.instance) {
+      DatabaseConnection.instance = new DatabaseConnection();
+    }
+    return DatabaseConnection.instance;
   }
 
   query(statement: string, params: any): Promise<any> {
@@ -31,3 +38,5 @@ export default class DatabaseConnection {
     return this.connection.tx(callback);
   }
 }
+
+export default DatabaseConnection;

@@ -1,10 +1,9 @@
 import { Router } from "express";
 import LoanController from "../controllers/LoanController";
-import AuthController from "../controllers/AuthController";
 
 const router = Router();
-router.post("/simulate", LoanController.Simulate);
-router.post("/apply", LoanController.Apply);
-router.get("/all", LoanController.All);
+router.post("/simulate", LoanController.simulate);
+router.post("/apply", LoanController.apply);
+router.get("/all", LoanController.all);
 
 export default router;

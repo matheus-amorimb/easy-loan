@@ -7,7 +7,7 @@ import InstallmentRepository from "../../src/infrastructure/repositories/Install
 import GetInstallments from "../../src/application/use-cases/Installment/GetInstallments";
 
 test("Should apply for loan successfully", async function () {
-  const connection = new DatabaseConnection();
+  const connection = DatabaseConnection.getInstance();
   const loanRepository = new LoanRepository(connection);
   const installmentRepository = new InstallmentRepository(connection);
   const applyForLoan = new ApplyForLoan(loanRepository, installmentRepository);

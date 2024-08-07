@@ -1,7 +1,7 @@
-import GetInstallmentsInput from "../dtos/installment/GetInstallmentsInput";
-import GetInstallmentsOutput from "../dtos/installment/GetInstallmentsOutput";
-import IInstallmentRepository from "../repositories/IInstallmentRepository";
-import UseCase from "./UseCase";
+import GetInstallmentsInput from "../../dtos/installment/GetInstallmentsInput";
+import GetInstallmentsOutput from "../../dtos/installment/GetInstallmentsOutput";
+import IInstallmentRepository from "../../repositories/IInstallmentRepository";
+import UseCase from "./../UseCase";
 
 export default class GetInstallments implements UseCase {
   constructor(readonly installmentRepository: IInstallmentRepository) {}

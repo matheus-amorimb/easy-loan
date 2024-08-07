@@ -42,6 +42,7 @@ export default class LoanRepository implements ILoanRepository {
   }
 
   async save(loan: Loan) {
+    console.log(loan);
     await this.connection.query(
       "INSERT INTO easyloan.loan (id, user_cpf, user_uf, user_birthdate, total, monthly_installment, date) VALUES ($1, $2, $3, $4, $5, $6, $7)",
       [

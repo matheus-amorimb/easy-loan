@@ -4,7 +4,7 @@ import ApplyForLoanInput from '../models/ApplyForLoanInput';
 import { Installment } from '../models/Installment';
 import { SimulateLoanInput } from '../models/SimulateLoanInput';
 
-const apiURL = 'http://18.231.175.178:3000/v1';
+const apiURL = 'http://localhost:3000/v1';
 
 export function useLoan(simulateLoanData: SimulateLoanInput) {
   const [installments, setInstallments] = useState<Installment[]>([]);

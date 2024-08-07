@@ -23,6 +23,7 @@ export default class ApplyForLoan implements UseCase {
     const installments = CalculateInstallements.calculate(loan);
 
     try {
+      console.log(loan);
       await this.loanRepository.save(loan);
       installments.forEach(
         async (installment) =>

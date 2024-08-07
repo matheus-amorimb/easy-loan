@@ -22,13 +22,3 @@ CREATE TABLE easyloan.installment (
   amount NUMERIC NOT NULL,
   due_date TIMESTAMP
 );
-
-CREATE TABLE easyloan.user (
-  id UUID PRIMARY KEY,
-  full_name TEXT NOT NULL,
-  email TEXT NOT NULL,
-  cpf TEXT NOT NULL,
-  password TEXT NOT NULL,
-  uf TEXT NOT NULL,
-  birthdate TIMESTAMP
-);
